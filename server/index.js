@@ -25,7 +25,7 @@ app.use('/user', userRoutes);
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'BigProject'})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 	.then(() => {
 		// listen for requests
 		app.listen(process.env.PORT, () => {
