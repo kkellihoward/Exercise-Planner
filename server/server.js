@@ -32,8 +32,9 @@ app.use((req, res, next) => 
 
 dotenv.config();
 
+const uri = process.env.MONGODB_URI;
 // connect to database
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'exercise'})
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'exercise'})
 	.then(() => {
 		// listen for requests
 		app.listen(process.env.PORT, () => {
