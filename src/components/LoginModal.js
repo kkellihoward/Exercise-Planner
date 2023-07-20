@@ -69,7 +69,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 		password: password,
 	}
 
-    axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", tempUser)
+    axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
 	.then( res =>
 		{
             if (res.status == 200)
