@@ -81,7 +81,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
     } catch (error) {
       // Handle any errors that occurred during the API call
       console.error('API Error:', error);
-      throw error;
+      // throw error;
     }
     // const tempUser =
     // {
