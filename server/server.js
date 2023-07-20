@@ -1,51 +1,26 @@
-import dotenv from 'dotenv';
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
-
-
-// starts up express app
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import userRoutes from './routes/users.js';
 const app = express();
-app.use(cors());
-app.options('*', cors());
 
-// middleware
-app.use(express.json());
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
+
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.end('it works!');
+	res.send('Yay');
 });
 
-app.use((req, res, next) => 
-{
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader(
-	'Access-Control-Allow-Headers',
-	'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-	);
-	res.setHeader(
-	'Access-Control-Allow-Methods',
-	'GET, POST, PATCH, DELETE, OPTIONS'
-	);
-	next();
-});
+app.use('/user', userRoutes);
 
 dotenv.config();
 
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
+const CONNECTION_URL = process.env.CONNECTION_URL;
+const PORT = process.env.PORT;
 
-const uri = process.env.MONGODB_URI;
-// connect to database
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'exercise'})
-	.then(() => {
-		// listen for requests
-		app.listen(process.env.PORT, () => {
-    		console.log('connected to database and listening on port', process.env.PORT);
-		});
-	})
-	.catch((error) => {
-		console.log(error)
-});
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+	.then(() => app.listen(PORT, () => console.log(`Server running on: http://localhost:${PORT}`)))
+	.catch((error) => console.log(error.message));

@@ -1,27 +1,27 @@
-const router = require("express").Router();
-const { User, validate } = require("../models/user");
-const bcrypt = require("bcrypt");
+import express from 'express';
 
-router.post("/", async (req, res) => {
-	try {
-		const { error } = validate(req.body);
-		if (error)
-			return res.status(400).send({ message: error.details[0].message });
+import { authenticate, finish } from '../middleware/auth.js';
 
-		const user = await User.findOne({ email: req.body.email });
-		if (user)
-			return res
-				.status(409)
-				.send({ message: "User with given email already Exist!" });
+import {
+	signup,
+	signin,
+	signout,
+	verifyEmail,
+	resendVerificationEmail,
+	tryReset,
+	resetPassword,
+} from '../controllers/users.js';
 
-		const salt = await bcrypt.genSalt(Number(process.env.SALT));
-		const hashPassword = await bcrypt.hash(req.body.password, salt);
+const router = express.Router();
 
-		await new User({ ...req.body, password: hashPassword }).save();
-		res.status(201).send({ message: "User created successfully" });
-	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
-	}
-});
+router.post('/validate-access', authenticate, finish);
 
-module.exports = router;
+router.post('/signup', signup);
+router.post('/signin', signin);
+router.post('/signout', signout);
+router.post('/verify-email', verifyEmail);
+router.post('/resend-verification-email', resendVerificationEmail);
+router.post('/try-reset', tryReset);
+router.post('/reset-password', resetPassword);
+
+export default router;
