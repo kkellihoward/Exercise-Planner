@@ -6,6 +6,7 @@ import { MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+import { response } from 'express';
 
 // css styling for modal from background to close modal
 const Background = styled.div`
@@ -77,9 +78,10 @@ export const LoginModal = ({ showModal, setShowModal}) => {
                 console.log("yay");
                 return;
             }
+            
 		}
 	)
-	.catch( err => console.log("somethings wrong mate"))
+	.catch( err => console.log(response))
 
   };
  
