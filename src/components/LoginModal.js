@@ -68,7 +68,10 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       const apiUrl = 'https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin'; // Replace with your API endpoint
       const data = { email, password };
   
-      const response = await axios.post(apiUrl, data);
+      const response = await axios.post(apiUrl, data, { headers: {
+        'Content-Type': 'application/json'
+        }}
+      );
   
       // Handle the response from the API as needed
       console.log('API Response:', response.data);
