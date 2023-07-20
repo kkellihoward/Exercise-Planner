@@ -61,26 +61,42 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [password, setPassword] = useState('');
   const [errMsg, setErr] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-	const tempUser =
-	{
-		email: email,
-		password: password,
-	}
 
-    axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
-	.then( res =>
-		{
-            if (res.status == 200)
-            {
-                console.log("yay");
-                return;
-            }
-            
-		}
-	)
-	.catch( err => console.log(err))
+    try {
+      const apiUrl = 'https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin'; // Replace with your API endpoint
+      const data = { email, password };
+  
+      const response = await axios.post(apiUrl, data);
+  
+      // Handle the response from the API as needed
+      console.log('API Response:', response.data);
+      
+      // You can return the response data or handle it further as per your requirements
+      return response.data;
+    } catch (error) {
+      // Handle any errors that occurred during the API call
+      console.error('API Error:', error);
+      throw error;
+    }
+    // const tempUser =
+    // {
+    //   email: email,
+    //   password: password,
+    // }
+
+  //   axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
+	//   .then( res =>
+	// 	{
+  //     if (res.status == 200)
+  //     {
+  //         console.log("yay");
+  //         return;
+  //     }     
+	// 	}
+	// )
+	// .catch( err => console.log(err))
 
   };
  
