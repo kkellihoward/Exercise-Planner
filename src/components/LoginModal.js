@@ -6,7 +6,6 @@ import { MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
-import { response } from 'express';
 
 // css styling for modal from background to close modal
 const Background = styled.div`
@@ -71,9 +70,9 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 	}
 
     axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", tempUser)
-	.then( response =>
+	.then( res =>
 		{
-            if (response.status == 200)
+            if (res.status == 200)
             {
                 console.log("yay");
                 return;
@@ -81,7 +80,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
             
 		}
 	)
-	.catch( err => console.log(response))
+	.catch( err => console.log(err))
 
   };
  

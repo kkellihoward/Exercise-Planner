@@ -1,17 +1,17 @@
+import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link, NavLink} from 'react-router-dom';
-
-//pages
-import LandingPage from './pages/landingpage';
+import LandingPage from './pages/landingpage'
 
 function App() {
   return (
-      <main>
-        <Routes>
+    <div className="App">
+      <Routes>
           <Route path='/' element ={<LandingPage />} />
         </Routes>
-      </main>
+    </div>
   );
 }
+
 export default App;
