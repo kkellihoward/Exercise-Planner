@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
 
 
 // starts up express app
@@ -31,6 +33,9 @@ app.use((req, res, next) => 
 });
 
 dotenv.config();
+
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 const uri = process.env.MONGODB_URI;
 // connect to database
