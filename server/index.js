@@ -1,10 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-const dotenv = require("dotenv");
-//import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import userRoutes from './server/routes/users.js';
-const path = require('path');
+import router from './server/routes/users.js';
 
 const app = express();
 
@@ -17,7 +15,7 @@ app.get('/', (req, res) => {
 	res.send('Yay');
 });
 
-app.use('/user', userRoutes);
+app.use('/user', router);
 
 dotenv.config();
 
