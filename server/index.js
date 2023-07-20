@@ -5,12 +5,8 @@ const dotenv = require("dotenv");
 import mongoose from 'mongoose';
 import userRoutes from './server/routes/users.js';
 const path = require('path');
-const PORT = process.env.PORT || 5000;
+
 const app = express();
-app.listen(PORT, () =>
-{
-	console.log('Server listening on port ' + PORT);
-});
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));

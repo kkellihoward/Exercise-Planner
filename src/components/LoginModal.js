@@ -77,7 +77,6 @@ export const LoginModal = ({ showModal, setShowModal}) => {
                 console.log("yay");
                 return;
             }
-			
 		}
 	)
 	.catch( err => console.log("somethings wrong mate"))
