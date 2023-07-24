@@ -131,7 +131,7 @@ export const SignUpForm = () => {
                     <FontAwesomeIcon icon={faInfoCircle} />
                     &nbsp;Must match the first password input field.
                 </p>
-                <Components.Button type='submit' style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
+                <Components.Button type='submit' style={{backgroundColor: ' #a06ff0'}}>Sign Up</Components.Button>
             </Components.Form>
         </>
     );

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 
+
 // css styling for modal from background to close modal
 const Background = styled.div`
   width: 100%;
@@ -83,24 +84,6 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       console.error('API Error:', error);
       // throw error;
     }
-    // const tempUser =
-    // {
-    //   email: email,
-    //   password: password,
-    // }
-
-  //   axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
-	//   .then( res =>
-	// 	{
-  //     if (res.status == 200)
-  //     {
-  //         console.log("yay");
-  //         return;
-  //     }     
-	// 	}
-	// )
-	// .catch( err => console.log(err))
-
   };
  
 
@@ -117,15 +100,15 @@ export const LoginModal = ({ showModal, setShowModal}) => {
               </Components.SignUpContainer>
               <Components.SignInContainer signinIn={signIn}>
                 <Components.Form>
-                  <Components.Title>Sign in</Components.Title>
+                  <Components.Title >Sign in</Components.Title>
                   <Components.Input onChange={e => setEmail(e.target.value)} type='userName1' placeholder='User Name'/>
                   <Components.Input onChange={e => setPassword(e.target.value)} type='password' placeholder='Password' />
-                  <Components.Button onClick={handleSubmit} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
+                  <Components.Button onClick={handleSubmit} style={{backgroundColor: ' #a06ff0'}}>Sign In</Components.Button>
                 </Components.Form>
               </Components.SignInContainer>
               <Components.OverlayContainer signinIn={signIn}>
                   <Components.Overlay signinIn={signIn}>
-                  <Components.LeftOverlayPanel signinIn={signIn}style={{backgroundColor: '#7f44d4'}}>
+                  <Components.LeftOverlayPanel signinIn={signIn}style={{backgroundColor: ' #a06ff0'}}>
                       <Components.Title>Welcome Back!</Components.Title>
                       <Components.Paragraph>
                           If you already have an account, please sign in here!
@@ -134,7 +117,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
                           Sign In
                       </Components.GhostButton>
                       </Components.LeftOverlayPanel>
-                      <Components.RightOverlayPanel signinIn={signIn} style={{backgroundColor: '#7f44d4'}}>
+                      <Components.RightOverlayPanel signinIn={signIn} style={{backgroundColor: ' #a06ff0'}}>
                         <Components.Title>Hello, Friend!</Components.Title>
                         <Components.Paragraph>
                             Get started on your journey with us!

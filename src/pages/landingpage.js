@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { LoginModal } from '../components/LoginModal';
 import styled from 'styled-components';
 import '../components/style.css';
-
-
+import Navbar from '../components/Navbar';
+import GradientBox from '../components/GradientBox';
+import { Footer } from '../components/Footer';
 const Contiainer = styled.div`
     display: flex;
 `;
@@ -17,9 +18,13 @@ function LandingPage()
     };
 
     return(
+        <div className='main'>
         <div>
-            <LoginModal showModal={showModal} setShowModal={setShowModal}/>
-            <button className='button2' onClick={openModal}>Get Started</button>
+            <LoginModal showModal={showModal} setShowModal={setShowModal}/> 
+            <Navbar></Navbar>
+            <GradientBox></GradientBox>
+            <Footer></Footer>
+        </div>
         </div>
     );
 };

@@ -1,7 +1,13 @@
+body{
+  overflow-y: scroll;
+  /* margin: 0;
+  padding: 0; */
+}
 .offscreen {
     position: absolute;
     left: -9999px;
   }
+  
   
   .instructions {
     font-size: 0.75rem;
