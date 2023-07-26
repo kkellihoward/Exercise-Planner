@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 /* Navbar container styles */
-.fill {
+.fill1 {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 5px;
     padding-bottom: 0;
-    border-bottom: solid 2px #9257f0;
-    top: 0;
+    bottom: 0;
+    position: absolute;
     z-index: -10;
+    width: 100%;
 }
 
 nav ul li a {
@@ -48,14 +48,14 @@ nav ul li a:after,
 nav ul li a:before {
   transition: all 1s;
 }
-nav.fill ul li a {
+nav.fill1 ul li a {
     position: relative;
   }
 nav ul li a:hover {
   color: #555;
 }
 
-nav.fill ul li a:after {
+nav.fill1 ul li a:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -68,7 +68,7 @@ nav.fill ul li a:after {
     background: rgb(147, 78, 252);
     height: 1px;
   }
-  nav.fill ul li a:after {
+  nav.fill1 ul li a:after {
     text-align: left;
     content: '.';
     margin: 0;
@@ -76,7 +76,7 @@ nav.fill ul li a:after {
   }
 
   
-  nav.fill ul li a:hover:after {
+  nav.fill1 ul li a:hover:after {
     z-index: 1;
     animation: fill 1s forwards;
     -webkit-animation: fill 1s forwards;
@@ -84,31 +84,29 @@ nav.fill ul li a:after {
     opacity: 1;
   }
   /* Navbar links styles */
-  .navbar-links {
+  .Footer-links {
     list-style: none;
+    bottom: 0;
     display: flex;
     align-items: center;
     font-family: 'Nunito';
-
+    margin-bottom: -3vh;
   }
   
-  .navbar-links li {
-    margin-right: 15px;
-  }
+  /* .Footer-links li {
+    margin-left: -20vw;
+  } */
   
-  .navbar-links li a {
+  .Footer-links li a {
     text-decoration: none;
     color: #000000;
   }
   
  /* Logo styles */
 .navbar-logo {
-    margin-left: 4vw;
     font-size: 24px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-family: 'Nunito';
-    color: #a06ff0;
+    font-weight: bold;
+    font-family: 'Nunito'
 }  
   /* Hover styles for links and button */
 .get-started-btn:hover {
@@ -124,9 +122,7 @@ nav.fill ul li a:after {
 .get-started-btn {
     background-color:#a06ff0 ;
     color: #FFFFFF;
-    right: 0;
     padding: 12px 16px;
-    position: absolute;
     border: none;
     cursor: pointer;
     font-weight: 500;
@@ -145,7 +141,6 @@ nav.fill ul li a:after {
     -webkit-user-select: none;
     touch-action: manipulation;
     will-change: transform;
-    margin-right: 4vw;
 }
 
 

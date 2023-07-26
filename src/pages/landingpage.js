@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import '../components/style.css';
 import Navbar from '../components/Navbar';
 import GradientBox from '../components/GradientBox';
-import { Footer } from '../components/Footer';
+import Footer from '../components/Footer';
 const Contiainer = styled.div`
     display: flex;
 `;

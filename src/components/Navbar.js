@@ -15,6 +15,7 @@ const [showModal, setShowModal] = useState(false);
     <>
     <LoginModal showModal={showModal} setShowModal={setShowModal}/>
     <nav className="fill">
+        <div className="navbar-logo">Exercise Please!</div>
       <ul className="navbar-links">
         <li><a href="#about">About Us</a></li>
         <li><a href="#help">Help</a></li>
