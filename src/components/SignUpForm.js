@@ -61,7 +61,7 @@ export const SignUpForm = () => {
         // if(validName == true && validEmail == true && validPwd == true && validMatch == true)
         // {
             try {
-                const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/createAccount'; 
+                const apiUrl = 'https://excerciseapi-3d89276bdcd6.herokuapp.com/signup'; 
                 const username = user
                 const password = pwd
                 const data = { email, username, password };
