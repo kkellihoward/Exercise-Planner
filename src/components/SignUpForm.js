@@ -2,12 +2,17 @@ import React, { useRef, useState, useEffect } from 'react';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Components from './LoginSignup';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export const SignUpForm = () => {
+    const navigate = useNavigate()
+
     const userRef = useRef();
     const errRef = useRef();
 
@@ -30,8 +35,6 @@ export const SignUpForm = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-    
-
     useEffect(() => {
         userRef.current.focus();
     }, []);
@@ -53,8 +56,7 @@ export const SignUpForm = () => {
         setErrMsg('');
     }, [user, pwd, matchPwd]);
 
-    const createAccount = e => {
-        const createAccount = async e => {
+    const createAccount = async e => {
         e.preventDefault();
         console.log(user, email, pwd);
 
@@ -73,7 +75,7 @@ export const SignUpForm = () => {
             
                 if(response.status === 200)
                 {
-                  navigate('/Events');
+                  console.log("here")
                 }
                 // Handle the response from the API as needed
                 console.log('API Response:', response.data);
@@ -88,8 +90,6 @@ export const SignUpForm = () => {
         // }
         // else
         //     return;
-    };
-
     };
 
     return (
@@ -167,7 +167,7 @@ export const SignUpForm = () => {
                     <FontAwesomeIcon icon={faInfoCircle} />
                     &nbsp;Must match the first password input field.
                 </p>
-                <Components.Button type='submit' style={{backgroundColor: ' #a06ff0'}}>Sign Up</Components.Button>
+                <Components.Button type='submit' style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
             </Components.Form>
         </>
     );
